@@ -2,21 +2,25 @@
     "image": "ghcr.io/tiacsys/bridle-dojo:default",
     "workspaceMount": "source=${localWorkspaceFolder}/..,target=/home/ubuntu/ws,type=bind",
     "workspaceFolder": "/home/ubuntu/ws",
-    "onCreateCommand": "cd /home/ubuntu/ws",
+    "postCreateCommand": "bash ${localWorkspaceFolderBasename}/scripts/prepareWorkspace.sh",
     "remoteUser": "ubuntu",
-
+    "containerEnv": {"SHELL":"/bin/bash"},
     "remoteEnv": { "LC_ALL": "C" },
+
     "customizations": {
       "vscode": {
         "settings": {
           "cmake.configureOnOpen": false,
           "cmake.showOptionsMovedNotification": false,
-          "git.autofetch": false
+          "git.autofetch": false,
+          "python.defaultInterpreterPath":"/home/ubuntu/ws/.venv/bin/python",
+          "python.terminal.activateEnvInCurrentTerminal": true,
         },
         "extensions": [
-          "ms-vscode.cpptools-extension-pack",
-          "plorefice.devicetree"
-        ]
+			    "ms-python.python",
+			    "ms-vscode.cpptools-extension-pack",
+			    "plorefice.devicetree",
+		    ]
       }
     }
   }

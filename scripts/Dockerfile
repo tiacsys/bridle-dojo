@@ -47,7 +47,6 @@ RUN cd /opt/zephyr-sdk-0.16.9 && \
     ./setup.sh -t x86_64-zephyr-elf && \
     ./setup.sh -h -c
 
-RUN pip3 install west --break-system-packages
 
 ARG USERNAME=ubuntu
 ARG USER_UID=1000
@@ -60,8 +59,12 @@ ARG USER_GID=$USER_UID
 # ********************************************************
 
 # [Optional] Set the default user. Omit if you want to keep the default as root.
+RUN apt install -y --no-install-recommends python3-venv
 USER $USERNAME
 
 RUN mkdir /home/ubuntu/ws
+
+# Launch bash shell by default
+CMD ["/bin/bash"]
 
 
