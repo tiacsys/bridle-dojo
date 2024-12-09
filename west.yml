@@ -1,0 +1,53 @@
+# The west manifest file for Bridle for embedded systems based on Zephyr.
+#
+# Copyright (c) 2021-2023 TiaC Systems
+# Copyright (c) 2019-2021 Li-Pro.Net
+#
+# SPDX-License-Identifier: Apache-2.0
+#
+# The per-installation west configuration file, .west/config, sets the
+# path to the project containing this file in the [manifest] section's
+# "path" variable.
+#
+# You are free to create your own manifest files and put them in any
+# repository you want, to create your own custom Zephyr installations.
+# For example, you could create a manifest file in your own out of
+# tree application directory, which would pull this Zephyr repository
+# in as an ordinary project.
+#
+# You can pass your manifest repositories to west init when creating a
+# new Zephyr installation. See the west documentation for more
+# information.
+
+manifest:
+  version: "0.13"
+
+  # If not otherwise specified, the projects below should be obtained
+  # from the tiacsys remote.
+  defaults:
+    remote: tiacsys
+
+  # "remotes" is a list of locations where git repositories are cloned
+  # and fetched from.
+  remotes:
+    - name: tiacsys
+      url-base: https://github.com/tiacsys
+
+  # West-related configuration for the Bridle repository.
+  self:
+    # This repository should be cloned to workspace/bridle.
+    path: bridle-dojo
+    # This line configures west extensions which are currently
+    # only for internal use by TIAC maintainers; import build
+    # commands from Zephyr repo.
+
+  projects:
+
+    - name: bridle
+      path: bridle
+      repo-path: bridle
+      revision: v3.7-branch
+
+      import: true
+
+
