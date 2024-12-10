@@ -20,6 +20,7 @@
 			    "ms-python.python",
 			    "ms-vscode.cpptools-extension-pack",
 			    "plorefice.devicetree",
+          "llvm-vs-code-extensions.vscode-clangd"
 		    ]
       }
     }
