@@ -4,8 +4,10 @@
 script_dir=$(dirname "$0")
 
 # Go to the root directory of the script
-cd "$script_dir"/../..
-echo "workspace dir is ${script_dir}"
+workspace_dir=$(realpath "$script_dir"/../..)
+echo "workspace dir is ${workspace_dir}"
+
+cd "$workspace_dir"
 
 if [ ! -d ".venv" ]; then
     echo "Could not find virtual env, creating one now"

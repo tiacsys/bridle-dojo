@@ -1,8 +1,8 @@
 {
     "image": "ghcr.io/tiacsys/bridle-dojo:default",
     "workspaceMount": "source=${localWorkspaceFolder}/..,target=/home/ubuntu/ws,type=bind",
-    "workspaceFolder": "/home/ubuntu/ws",
-    "postCreateCommand": "bash ${localWorkspaceFolderBasename}/scripts/prepareWorkspace.sh",
+    "workspaceFolder": "/home/ubuntu/ws/",
+    "onCreateCommand": "bash ${localWorkspaceFolderBasename}/scripts/prepareWorkspace.sh",
     "remoteUser": "ubuntu",
     "containerEnv": {"SHELL":"/bin/bash"},
     "remoteEnv": { "LC_ALL": "C" },
