@@ -25,3 +25,5 @@ echo "Update workspace using west"
 
 .venv/bin/pip install -r zephyr/scripts/requirements.txt
 
+west zephyr-export
+west bridle-export
