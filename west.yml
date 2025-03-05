@@ -48,6 +48,43 @@ manifest:
       repo-path: bridle
       revision: v4.0-branch
 
-      import: true
+      import: 
+        name-blocklist:
+          - ubxlib
+          - zephyr
+      
+      userdata:
+        west-commands-path: scripts/west_commands
+    
+
+
+
+    - name: zephyr
+      path: zephyr
+      remote: tiacsys
+      repo-path: zephyr
+      revision: tiacsys/v4.0-branch
+      clone-depth: 5000
+      # import submodules from Zephyr manifest
+      import:
+        # In addition to the Zephyr repository itself, TIAC also
+        # imports the contents of Zephyr/west.yml at the above
+        # revision. Only the projects explicitly named in the
+        # following allowlist are imported.
+        #
+        # Note that the Zephyr west extensions (like 'build', 'flash',
+        # 'debug', etc.) are automatically provided by this import, so
+        # there's no need to add a redundant west-commands: key for
+        # the Zephyr project.
+        #
+        # Please keep this list sorted alphabetically.
+        name-allowlist:
+          - cmsis
+          - hal_rpi_pico
+          - lvgl
+           # hook up for Bridle zephyr_trampoline.py
+      userdata:
+        west-commands-path: scripts/west_commands
+    
 
 
