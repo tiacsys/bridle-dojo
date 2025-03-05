@@ -1,5 +1,5 @@
 {
-    "image": "ghcr.io/tiacsys/bridle-dojo:default",
+    "image": "ghcr.io/tiacsys/bridle-dojo:v4.0-branch",
     "workspaceMount": "source=${localWorkspaceFolder}/..,target=/home/ubuntu/ws,type=bind",
     "workspaceFolder": "/home/ubuntu/ws/",
     "onCreateCommand": "bash ${localWorkspaceFolderBasename}/scripts/prepareWorkspace.sh",

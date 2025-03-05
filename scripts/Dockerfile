@@ -1,6 +1,6 @@
 FROM ubuntu:24.04 AS base
 ARG TARGETPLATFORM
-ARG ZEPHYR_SDK_VERSION="0.16.9"
+ARG ZEPHYR_SDK_VERSION="0.17.0"
 
 RUN apt update && \
     DEBIAN_FRONTEND=noninteractive \
@@ -42,7 +42,7 @@ RUN cd /opt && \
 
 FROM build-${TARGETARCH} AS build
 
-RUN cd /opt/zephyr-sdk-0.16.9 && \
+RUN cd /opt/zephyr-sdk-${ZEPHYR_SDK_VERSION} && \
     ./setup.sh -t arm-zephyr-eabi && \
     ./setup.sh -t x86_64-zephyr-elf && \
     ./setup.sh -h -c

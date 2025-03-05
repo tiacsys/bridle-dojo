@@ -46,7 +46,7 @@ manifest:
     - name: bridle
       path: bridle
       repo-path: bridle
-      revision: v3.7-branch
+      revision: v4.0-branch
 
       import: true
 
