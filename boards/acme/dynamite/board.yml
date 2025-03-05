@@ -1,0 +1,6 @@
+boards:
+  - name: acme_dynamite
+    vendor: acme
+    socs:
+      - name: rp2040
+
