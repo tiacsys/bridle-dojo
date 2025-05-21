@@ -46,7 +46,7 @@ manifest:
     - name: bridle
       path: bridle
       repo-path: bridle
-      revision: v4.0-branch
+      revision: v4.1-branch
 
       import: 
         name-blocklist:
@@ -63,7 +63,7 @@ manifest:
       path: zephyr
       remote: tiacsys
       repo-path: zephyr
-      revision: tiacsys/v4.0-branch
+      revision: tiacsys/v4.1-branch
       clone-depth: 5000
       # import submodules from Zephyr manifest
       import:
