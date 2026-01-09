@@ -53,12 +53,9 @@ manifest:
           - ubxlib
           - zephyr
           - cannectivity
-      
+
       userdata:
         west-commands-path: scripts/west_commands
-    
-
-
 
     - name: zephyr
       path: zephyr
@@ -82,6 +79,10 @@ manifest:
         name-allowlist:
           - cmsis
           - cmsis_6
+          - hal_infineon
+          - hal_nxp
+          - hal_st
+          - hal_stm32
           - hal_rpi_pico
           - lvgl
            # hook up for Bridle zephyr_trampoline.py
@@ -133,4 +134,3 @@ manifest:
         name-blocklist:
           - zephyr
           # zephyr-keep-sorted-stop
-
