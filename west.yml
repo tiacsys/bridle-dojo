@@ -46,12 +46,13 @@ manifest:
     - name: bridle
       path: bridle
       repo-path: bridle
-      revision: v4.1-branch
+      revision: v4.3-branch
 
       import: 
         name-blocklist:
           - ubxlib
           - zephyr
+          - cannectivity
       
       userdata:
         west-commands-path: scripts/west_commands
@@ -63,7 +64,7 @@ manifest:
       path: zephyr
       remote: tiacsys
       repo-path: zephyr
-      revision: tiacsys/v4.1-branch
+      revision: tiacsys/v4.3-branch
       clone-depth: 5000
       # import submodules from Zephyr manifest
       import:
@@ -80,11 +81,56 @@ manifest:
         # Please keep this list sorted alphabetically.
         name-allowlist:
           - cmsis
+          - cmsis_6
           - hal_rpi_pico
           - lvgl
            # hook up for Bridle zephyr_trampoline.py
       userdata:
         west-commands-path: scripts/west_commands
-    
 
+    # The original CANnectivity project as application folder. Hold the
+    # revision in sync with the right Zephyr version:
+    #
+    #     CANnectivity    Zephyr RTOS
+    #     ============    ===========
+    #     main            main
+    #     v1.3-branch     v4.3-branch
+    #     v1.3.0          v4.3-branch
+    #     v1.2-branch     v4.2-branch
+    #     v1.2.1          v4.2-branch
+    #     v1.2.0          v4.2-branch
+    #     v1.1-branch     v4.1-branch
+    #     v1.1.0          v4.1-branch
+    #     v1.0-branch     v4.0-branch
+    #     v1.0.2          v4.0-branch
+    #     v1.0.1          v4.0-branch
+    #     v1.0.0          v4.0-branch
+    #
+    - name: cannectivity
+      path: cannectivity
+      remote: tiacsys
+      repo-path: cannectivity
+      revision: tiacsys/v1.3-branch
+      clone-depth: 5000
+      # import submodules from CANnectivity manifest
+      import:
+        # In addition to the CANnectivity repository itself, TIAC also
+        # imports the contents of cannectivity/west.yml at the above
+        # revision. Only the projects explicitly named in the
+        # following allowlist are imported.
+        #
+        # Please keep this list sorted alphabetically.
+        # zephyr-keep-sorted-start re(^\s+\- \w)
+        name-allowlist:
+          []
+          # zephyr-keep-sorted-stop
+        #
+        # Zephyr as defined by CANnectivity will be blocked, TIAC has
+        # its own definition in the submanifests/zephyr.yml file.
+        #
+        # Please keep this list sorted alphabetically.
+        # zephyr-keep-sorted-start re(^\s+\- \w)
+        name-blocklist:
+          - zephyr
+          # zephyr-keep-sorted-stop
 
