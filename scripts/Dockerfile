@@ -1,13 +1,13 @@
 FROM ubuntu:24.04 AS base
 ARG TARGETPLATFORM
-ARG ZEPHYR_SDK_VERSION="0.17.0"
+ARG ZEPHYR_SDK_VERSION="0.17.4"
 
 RUN apt update && \
     DEBIAN_FRONTEND=noninteractive \
     apt install -y --no-install-recommends \
     git cmake ninja-build gperf ccache dfu-util \
     device-tree-compiler wget python3-dev python3-pip \
-    python3-setuptools python3-tk python3-wheel \
+    python3-setuptools python3-tk python3-wheel python3-venv \
     xz-utils file make gcc \
     libsdl2-dev libmagic1 vim htop
 
