@@ -45,6 +45,7 @@ FROM build-${TARGETARCH} AS build
 RUN cd /opt/zephyr-sdk-${ZEPHYR_SDK_VERSION} && \
     ./setup.sh -t arm-zephyr-eabi && \
     ./setup.sh -t x86_64-zephyr-elf && \
+    ./setup.sh -t riscv64-zephyr-elf && \
     ./setup.sh -h -c
 
 
