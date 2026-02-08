@@ -24,6 +24,7 @@ echo "Update workspace using west"
 .venv/bin/west update
 
 .venv/bin/west packages pip --install
+.venv/bin/west blobs --auto-accept fetch hal_infineon
 
 .venv/bin/west zephyr-export
 .venv/bin/west bridle-export
